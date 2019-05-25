@@ -885,12 +885,19 @@ void tool_change(const uint8_t tmp_extruder, const float fr_mm_s/*=0.0*/, bool n
           true ||
         #endif
         #if ENABLED(DUAL_X_CARRIAGE)
-         dual_x_carriage_mode != DXC_FULL_CONTROL_MODE ||
+         dual_x_carriage_mode == DXC_FULL_CONTROL_MODE ||
         #endif
-        false )
-          do_blocking_move_to(destination); //return to stored position
-        else
-          planner.buffer_line(current_position, feedrate_mm_s, active_extruder); //apply offsets only
+        false ) {
+          SERIAL_ECHOLN("TLCHNG_OFFSETS");
+          //current_position[Z_AXIS] -= toolchange_settings.z_raise; //return z-raise
+          destination[X_AXIS] = current_position[X_AXIS];
+          destination[Y_AXIS] = current_position[Y_AXIS];
+          //planner.buffer_line(current_position, feedrate_mm_s, active_extruder); //apply offsets
+        }
+        else{
+          SERIAL_ECHOLN("TLCHNG_RETURNPOS");
+        }
+        do_blocking_move_to(destination); //return to stored position
 
         #if ENABLED(DUAL_X_CARRIAGE)
           active_extruder_parked = false;
