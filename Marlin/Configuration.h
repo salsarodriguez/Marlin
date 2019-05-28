@@ -93,7 +93,7 @@
    Leave all disabled if no sensor is available
 */
 //#define ABL_EZABL // TH3D EZABL or Any NO Sensor
-//#define ABL_NCSW //Creality ABL or Any NC Sensor
+#define ABL_NCSW //Creality ABL or Any NC Sensor
 //#define ABL_BLTOUCH
 
 /*
@@ -1148,7 +1148,7 @@
 */
 #if ENABLED(MachineCRX) && ENABLED(HotendStock)
   #if ENABLED(ABL_BLTOUCH)
-    #define X_PROBE_OFFSET_FROM_EXTRUDER -22  // X offset: -left  +right  [of the nozzle]
+    #define X_PROBE_OFFSET_FROM_EXTRUDER -44  // X offset: -left  +right  [of the nozzle]
     #define Y_PROBE_OFFSET_FROM_EXTRUDER -45  // Y offset: -front +behind [the nozzle]
     #define Z_PROBE_OFFSET_FROM_EXTRUDER 0   // Z offset: -below +above  [the nozzle]
   #endif
@@ -1160,19 +1160,19 @@
   #endif
 #elif ENABLED(MachineCR10SPro) && ENABLED(HotendStock)
   #if ENABLED(ABL_BLTOUCH)
-    #define X_PROBE_OFFSET_FROM_EXTRUDER -41  // X offset: -left  +right  [of the nozzle]
+    #define X_PROBE_OFFSET_FROM_EXTRUDER -44  // X offset: -left  +right  [of the nozzle]
     #define Y_PROBE_OFFSET_FROM_EXTRUDER -8  // Y offset: -front +behind [the nozzle]
     #define Z_PROBE_OFFSET_FROM_EXTRUDER 0   // Z offset: -below +above  [the nozzle]
   #endif
 
   #if ENABLED(ABL_EZABL) || ENABLED(ABL_NCSW)
-    #define X_PROBE_OFFSET_FROM_EXTRUDER -27  // X offset: -left  +right  [of the nozzle]
+    #define X_PROBE_OFFSET_FROM_EXTRUDER -44  // X offset: -left  +right  [of the nozzle]
     #define Y_PROBE_OFFSET_FROM_EXTRUDER 0  // Y offset: -front +behind [the nozzle]
     #define Z_PROBE_OFFSET_FROM_EXTRUDER 0   // Z offset: -below +above  [the nozzle]
   #endif
 #else
   #if (ENABLED(ABL_BLTOUCH) && ENABLED(HotendStock))
-    #define X_PROBE_OFFSET_FROM_EXTRUDER -41  // X offset: -left  +right  [of the nozzle]
+    #define X_PROBE_OFFSET_FROM_EXTRUDER -44  // X offset: -left  +right  [of the nozzle]
     #define Y_PROBE_OFFSET_FROM_EXTRUDER -8  // Y offset: -front +behind [the nozzle]
     #define Z_PROBE_OFFSET_FROM_EXTRUDER 0   // Z offset: -below +above  [the nozzle]
   #endif
@@ -1184,13 +1184,13 @@
   #endif
 
   #if (ENABLED(ABL_BLTOUCH) && ENABLED(HotendE3D))
-    #define X_PROBE_OFFSET_FROM_EXTRUDER 33  // X offset: -left  +right  [of the nozzle]
+    #define X_PROBE_OFFSET_FROM_EXTRUDER 44  // X offset: -left  +right  [of the nozzle]
     #define Y_PROBE_OFFSET_FROM_EXTRUDER 5  // Y offset: -front +behind [the nozzle]
     #define Z_PROBE_OFFSET_FROM_EXTRUDER 0   // Z offset: -below +above  [the nozzle]
   #endif
 
   #if ((ENABLED(ABL_EZABL) || ENABLED(ABL_NCSW)) && ENABLED(HotendE3D))
-    #define X_PROBE_OFFSET_FROM_EXTRUDER 33  // X offset: -left  +right  [of the nozzle]
+    #define X_PROBE_OFFSET_FROM_EXTRUDER 44  // X offset: -left  +right  [of the nozzle]
     #define Y_PROBE_OFFSET_FROM_EXTRUDER 5  // Y offset: -front +behind [the nozzle]
     #define Z_PROBE_OFFSET_FROM_EXTRUDER 0   // Z offset: -below +above  [the nozzle]
   #endif
